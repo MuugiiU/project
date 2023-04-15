@@ -9,3 +9,6 @@ ERDiagram
 
 Web Design
 [https://www.figma.com/file/xMNsFHx8eAwvmjqg8sJUUE/E.Rent?node-id=0-1&t=mzpfLcxDptt6ZZDi-0]
+
+Admin Page
+[https://demos.creative-tim.com/nextjs-argon-dashboard/admin/icons]
