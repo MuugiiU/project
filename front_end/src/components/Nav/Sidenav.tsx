@@ -16,10 +16,17 @@ const Sidenav = () => {
     nav ? setHidden("") : setHidden("hidden");
   }, [nav]);
   const navLink = [
-    { name: "page1", link: "/" },
-    { name: "page2", link: "/page2" },
-    { name: "page3", link: "/page3" },
-    { name: "page4", link: "/page4" },
+    { name: "Home", link: "/" },
+    { name: "Гэрийн&Тавилга", link: "/ger" },
+    { name: "Эрэгтэй", link: "/er" },
+    { name: "Эмэгтэй", link: "/em" },
+    { name: "Хүүхдийнх", link: "/huuhed" },
+    { name: "Спорт", link: "/sport" },
+    { name: "Цахилгаан хэрэгсэл", link: "/tsahilgaan" },
+    { name: "Технологи", link: "/technology" },
+    { name: "Гоо сайхан", link: "/goo" },
+    { name: "Үнэт эдлэл", link: "/unet" },
+    { name: "Ном", link: "/nom" },
   ];
   return (
     <div className={"h-screen bg-white shadow-md px-5 w-[250px] " + hidden}>
