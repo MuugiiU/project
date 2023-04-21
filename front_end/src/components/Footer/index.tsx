@@ -21,29 +21,29 @@ export default function Footer() {
   };
 
   return (
-      <Box position="static" sx={{position:"static" ,bottom:0, background: 'linear-gradient(to right, #55A3DF,#4BA58C,#1FC4DC, #5ECDB1)',color:"white",paddingLeft:"10%",paddingRight:"10%",paddingTop:"30px",paddingBottom:"30px",marginTop:"50px"}}>
-          <Typography variant='h3'>
+      <Box sx={{position:"static" ,bottom:0, background: 'linear-gradient(to right, #55A3DF,#4BA58C,#1FC4DC, #5ECDB1)',color:"white",paddingLeft:"10%",paddingRight:"10%",paddingTop:"30px",paddingBottom:"30px",marginTop:"50px",width:"100"}}>
+          <Typography variant='h3' sx={{textAlign:{xs:"center",sm:"start"}}}>
             E.RENT
           </Typography>
-          <Box sx={{display:"flex",paddingTop:"20px"}}>
-            <Box sx={{}} maxWidth="sm">
+          <Box sx={{display:"flex",flexDirection:{xs:"column",sm:"row"},paddingTop:"20px",textAlign:{xs:"center",sm:"start"}}}>
+            <Box sx={{}}>
                 <Typography variant="h4">Mail</Typography>
                 <Link href="#" sx={{textDecoration:"none",paddingTop:"10px"}} color="inherit">e.rent@gmail.com</Link>
             </Box>
-            <Box sx={{marginLeft:"15%",display:"flex",flexDirection:"column"}} maxWidth="sm">
+            <Box sx={{marginLeft:{sm:"15%"},display:"flex",flexDirection:"column",textAlign:{xs:"center",sm:"start"}}}>
                 <Typography variant="h4">Social</Typography>
                 <Link href="#" sx={{textDecoration:"none",paddingTop:"10px"}} color="inherit">Facebook</Link>
                 <Link href="#" sx={{textDecoration:"none",paddingTop:"5px"}} color="inherit">Instagram</Link>
                 <Link href="#" sx={{textDecoration:"none",paddingTop:"5px"}} color="inherit">Twitter</Link>
                 <Link href="#" sx={{textDecoration:"none",paddingTop:"5px"}} color="inherit">YouTube</Link>
             </Box>
-            <Box sx={{marginLeft:"15%"}} maxWidth="sm">
+            <Box sx={{marginLeft:{sm:"15%"},textAlign:{xs:"center",sm:"start"}}}>
                 <Typography variant="h4" >Contacts</Typography>
                 <Typography sx={{paddingTop:"10px"}}>+976 98364566</Typography>
                 <Typography sx={{paddingTop:"5px"}}>+976 98364566</Typography>
                 <Typography sx={{paddingTop:"5px"}}>+976 98364566</Typography>
             </Box>
-            <Box sx={{marginLeft:"15%",display:"flex",flexDirection:"column"}} maxWidth="sm">
+            <Box sx={{marginLeft:{sm:"15%"},display:"flex",flexDirection:"column"}}>
                 <Typography variant="h4">Help</Typography>
                 <Link href="#" sx={{textDecoration:"none",paddingTop:"10px"}} color="inherit">Түгээмэл асуулт & хариулт</Link>
                 <Link href="#" sx={{textDecoration:"none",paddingTop:"5px"}} color="inherit">Нууцлалын бодлого</Link>
