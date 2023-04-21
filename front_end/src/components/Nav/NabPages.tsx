@@ -44,8 +44,8 @@ const NabPages = () => {
     }
   };
   return (
-    <nav className=" w-full h-10 shadow-xl bg-white">
-      <div className="container mx-auto  items-center flex  h-full w-full px-4  2xl:px16 justify-around ">
+    <nav className=" w-full h-8 shadow-xl bg-white p-10">
+      <div className="container mx-auto  items-center flex  h-full w-full   2xl:px16 justify-around ">
         <div>
           {/* side bar-nii 3 zuraas */}
           <button className="space-y-2" onClick={toggleMenu}>
@@ -53,7 +53,7 @@ const NabPages = () => {
             <div className="w-9 h-0.5 bg-[#1FC4DC]" />
             <div className="w-9 h-0.5 bg-[#5ECDB1]" />
           </button>
-          <span className="text-cyan-500 flex-row "> Ангилал</span>
+          <span className="text-cyan-500 flex-row p-8"> Ангилал</span>
         </div>
         <div className="hidden sm:flex">
           <ul className="hidden sm:flex">

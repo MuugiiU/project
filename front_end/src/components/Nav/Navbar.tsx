@@ -45,7 +45,7 @@ const Navbar = () => {
                 <input
                   type="search"
                   id="search-dropdown"
-                  className="block p-2.5  w-full z-20 text-sm  placeholder-cyan-500 rounded-r-md focus:outline-none"
+                  className="block p-2.5  w-full z-20 text-sm  placeholder-cyan-500 rounded-r-md border-cyan-500"
                   placeholder="Хайлт жишээ нь: search, хайх зүйлээ бичнэ үү..."
                   required
                 />
@@ -80,7 +80,7 @@ const Navbar = () => {
             className="inline-flex items-center p-2 text-2xl text-cyan-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-cyan-400 dark:hover:bg-cyan-700 dark:focus:ring-gray-600"
           />
           <div id="navbar-search">
-            <div className="lg:flex gap-10 w-3/12 md:hidden sm:hidden z-[-1] md:z-auto md:static absolute">
+            <div className="lg:flex gap-10 w-3/12 md:hidden max-sm:hidden z-[-1] md:z-auto md:static absolute">
               <picture className="flex gap-10">
                 <Image src={imgPic01} alt="pic" height={35} width={35} />
                 <Image src={imgPic04} alt="pic" height={35} width={35} />
