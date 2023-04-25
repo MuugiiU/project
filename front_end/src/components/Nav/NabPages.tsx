@@ -61,7 +61,7 @@ const NabPages = () => {
               {catLink.map(({ link, cat }) => (
                 <Link
                   key={cat}
-                  href={link}
+                  href={"cats"+link}
                   className="ml=10  hover:bg-gray-50 hover:scale-110 text-cyan-500 "
                 >
                   {cat}
