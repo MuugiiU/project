@@ -57,7 +57,7 @@ const Detail = () => {
               САГСАНД ХИЙХ
             </button>
             <button className="bg-gradient-to-r from-blue-300 from-10% via-sky-500 via-30% to-emerald-300 to-90% border font-bold border-black text-white p-5 w-full rounded-md sm:text-sm sm:text-bold">
-              ТҮРЭЭСЛЭН АВАХ
+              <a href="/your_card"> ТҮРЭЭСЛЭН АВАХ</a>
             </button>
           </div>
         </div>

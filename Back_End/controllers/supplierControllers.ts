@@ -1,4 +1,4 @@
-import Supplier from "../model/Supplier";
+import Supplier from "../models/Supplier";
 import { NextFunction, Request, Response } from "express";
 
 
