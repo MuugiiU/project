@@ -10,22 +10,16 @@ const app = express();
 // app.use(cors());
 app.use(express.json());
 
-
 app.use("/suppliers", supplierRoutes);
 
-
-
 const MONGO_URL = process.env.MONGO_URL || "";
-const PORT = process.env.PORT
-
-
+const PORT = process.env.PORT;
 
 app.get("/", (req: Request, res: Response) => {
-    res.send("hello erent");
-})
-
+  res.send("hello erent");
+});
 
 connectDB(MONGO_URL);
 app.listen(PORT, () => {
-    console.log(`server ${PORT} deer aslaa.`)
-})
+  console.log(`server ${PORT} deer aslaa.`);
+});
