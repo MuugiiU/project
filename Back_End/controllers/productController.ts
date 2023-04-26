@@ -33,15 +33,15 @@ export const createProduct = async (req: Request, res: Response) => {
 
   try {
     const product = await Product.create(newProduct);
-    res.status(200).json({ success: true, product });
+    res.status(200).json({ message: "Бүтээгдэхүүн амжилттай үүслээ", product });
   } catch (error: any) {
-    res.status(400).json({ success: false, message: error.message });
+    res.status(400).json({ message: "Алдааны мэдээлэл", error: error.message });
   }
 };
 
 export const updateProduct = async (req: Request, res: Response) => {
   const { id } = req.params;
-  if (id) {
+  if (!id) {
     res.status(400).json({ message: `${id}-тэй бүтээгдэхүүн олдсонгүй` });
   }
   try {
@@ -57,7 +57,7 @@ export const updateProduct = async (req: Request, res: Response) => {
       product,
     });
   } catch (error) {
-    console.log("Алдааны мэдээлэл"), error;
+    console.log("Алдааны мэдээлэл", error);
   }
 };
 export const deleteProduct = async (req: Request, res: Response) => {

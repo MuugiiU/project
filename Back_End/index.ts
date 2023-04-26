@@ -7,6 +7,7 @@ import { connectDB } from "./config/mongoDB";
 import upload from "./middlewares/upload";
 import cloudinary from "./utils/cloudinary";
 import ProductRoutes from "./Routes/ProductRoutes";
+import OrderRoutes from "./Routes/OrderRoutes";
 
 const app = express();
 
@@ -32,8 +33,11 @@ app.get("/", (req: Request, res: Response) => {
 });
 
 app.use("/uploads", express.static("uploads"));
+
+// connect Routes
 app.use("/categories", CategoryRoutes);
 app.use("/products", ProductRoutes);
+app.use("/orders", OrderRoutes);
 
 const MONGO_URI = process.env.MONGO || "";
 connectDB(MONGO_URI);
