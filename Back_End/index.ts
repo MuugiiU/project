@@ -8,7 +8,7 @@ import upload from "./middlewares/upload";
 import cloudinary from "./utils/cloudinary";
 import ProductRoutes from "./Routes/ProductRoutes";
 import OrderRoutes from "./Routes/OrderRoutes";
-import UserRoutes from "./Routes/userRoutes"
+import UserRoutes from "./Routes/userRoutes";
 
 const app = express();
 
