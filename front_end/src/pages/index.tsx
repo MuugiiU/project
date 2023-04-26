@@ -1,15 +1,13 @@
-import Category from "@/components/Category";
-import Navbar from "../components/Nav/Navbar";
-import Sidenav from "@/components/Nav/Sidenav";
-import { NavContext } from "@/context/NavContext";
-import Subnav from "../components/Nav/Sidenav";
+import React from "react";
+import Navbar from "@/components/Nav/Navbar";
+import Detail from "./Products/[id]";
 
-export default function Home() {
+const Index = () => {
   return (
     <>
-      {/* <Subnav /> */}
-
-      {/* <Category /> */}
+      <Detail />
     </>
   );
-}
+};
+
+export default Index;
