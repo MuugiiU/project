@@ -35,6 +35,9 @@ export default function Footer() {
         paddingTop: "40px",
         paddingBottom: "10px",
         marginTop: "40px",
+        position: "absolute",
+        width: "100%",
+        bottom: "0",
       }}
     >
       <Grid
@@ -89,30 +92,18 @@ export default function Footer() {
             Information
           </Typography>
           <Link href="#" sx={{ textDecoration: "none" }}>
-            <Typography
-              color="white"
-              variant="h6"
-              sx={{ paddingTop: { md: "5px" } }}
-            >
-              About
+            <Typography color="white" variant="h6">
+              Terms & Conditions
             </Typography>
           </Link>
           <Link href="#" sx={{ textDecoration: "none" }}>
-            <Typography
-              color="white"
-              variant="h6"
-              sx={{ paddingTop: { md: "5px" } }}
-            >
+            <Typography color="white" variant="h6">
               Help & Support
             </Typography>
           </Link>
           <Link href="#" sx={{ textDecoration: "none" }}>
-            <Typography
-              color="white"
-              variant="h6"
-              sx={{ paddingTop: { md: "5px" } }}
-            >
-              Terms & Conditions
+            <Typography color="white" variant="h6">
+              About
             </Typography>
           </Link>
         </Grid>
@@ -128,18 +119,10 @@ export default function Footer() {
           <Typography color="white" variant="h4">
             Contact Us
           </Typography>
-          <Typography
-            color="white"
-            variant="h6"
-            sx={{ paddingTop: { md: "5px" } }}
-          >
+          <Typography color="white" variant="h6">
             +976 90909090
           </Typography>
-          <Typography
-            color="white"
-            variant="h6"
-            sx={{ paddingTop: { md: "5px" } }}
-          >
+          <Typography color="white" variant="h6">
             +976 80808080
           </Typography>
         </Grid>
