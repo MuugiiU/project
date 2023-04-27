@@ -3,7 +3,7 @@ import Order from "../models/Order";
 // get all Orders
 export const getAllOrder = async (req: Request, res: Response) => {
   try {
-    const orders = await Order.find();
+    const orders = await Order.find().populate("user");
     if (!orders) {
       res.status(201).json({ message: "Захиалга хоосон байна." });
     }
@@ -20,7 +20,7 @@ export const getOrder = async (req: Request, res: Response) => {
   try {
     const { id } = req.params;
     console.log(req.params);
-    const order = await Order.findById({ _id: id });
+    const order = await Order.findById({ _id: id }).populate("user");
     res.status(200).json({ message: "захиалга олдлоо", order });
   } catch (error) {
     console.log("Алдааны мэдээлэл", error);
