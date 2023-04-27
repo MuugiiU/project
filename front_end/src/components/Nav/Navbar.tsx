@@ -22,6 +22,7 @@ const Navbar = () => {
   const handleNav = () => {
     setMenuOpen(!menuOpen);
   };
+
   return (
     <div className="pt-3">
       <div className="bg-white h-20 shadow-md ">
@@ -37,7 +38,7 @@ const Navbar = () => {
           {/* Search heseg ehlej bg ni  */}
 
           <form className="w-9/12 pl-10">
-            <div className="md:flex z-[-1] md:z-auto md:static absolute w-10/12 left-0 md:w-auto md:py-0 py-4 md:pl-0 pl-7 md:opacity-100 opacity-0  top-[-300px] transition-all ease-in duration-500">
+            <div className="md:flex z-[-1] md:z-auto md:static  md:w-auto md:py-0 py-4 md:pl-0 pl-7 md:opacity-100 absolute w-10/12 left-0 opacity-0  top-[-300px] transition-all ease-in duration-500">
               {/* bugd deer darahaar category dropdown hiih component  */}
               <Subnav />
 
@@ -77,10 +78,11 @@ const Navbar = () => {
           {/* responsive menu icon */}
           <FontAwesomeIcon
             icon={faSearch}
-            className="inline-flex items-center p-2 text-2xl text-cyan-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-cyan-400 dark:hover:bg-cyan-700 dark:focus:ring-gray-600"
+            className="md:hidden inline-flex items-center p-2 text-2xl text-cyan-500 rounded-lg  hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-cyan-400 dark:hover:bg-cyan-700 dark:focus:ring-gray-600"
           />
-          <div id="navbar-search">
-            <div className="lg:flex gap-10 w-3/12 md:hidden sm:hidden z-[-1] md:z-auto md:static absolute">
+
+          <div id="md:hidden sm:hidden  navbar-search">
+            <div className="sm:hidden z-[-1] md:hidden  md:z-auto md:static  gap-10 w-3/12absolute lg:flex">
               <picture className="flex gap-10">
                 <Image src={imgPic01} alt="pic" height={35} width={35} />
                 <Image src={imgPic04} alt="pic" height={35} width={35} />

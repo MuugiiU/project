@@ -25,4 +25,5 @@
     "src/components/Nav/Navbar.tsx"
   ],
   "exclude": ["node_modules"]
+  
 }
