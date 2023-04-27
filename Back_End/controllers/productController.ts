@@ -21,7 +21,7 @@ export const getProduct = async (req: Request, res: Response) => {
   try {
     const { id } = req.params;
     console.log(req.params);
-    const product = await Product.findById({ id });
+    const product = await Product.findById({ id }).populate("category");
     res.status(200).json({ success: true, product });
   } catch (error: any) {
     console.log("Алдааны мэдээлэл", error.message);
@@ -66,7 +66,7 @@ export const deleteProduct = async (req: Request, res: Response) => {
     res.status(400).json({ message: `${id}-тэй бүтээгдэхүүн олдсонгүй` });
   }
   try {
-    const product = await Product.findByIdAndDelete(id);
+    const product = await Product.findByIdAndDelete(id).populate("category");
     res
       .status(201)
       .json({ message: `${id}-тэй бүтээгдэхүүн устгагдлаа`, product });
