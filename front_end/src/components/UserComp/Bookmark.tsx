@@ -1,5 +1,7 @@
 import React from "react";
 
-export const Bookmark = () => {
-  return <div>Bookmark</div>;
+const Bookmark = () => {
+  return <div className="bg-black text-white px-5">Bookmark</div>;
 };
+
+export default Bookmark;

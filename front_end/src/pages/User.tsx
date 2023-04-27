@@ -1,149 +1,117 @@
 import React, { useState } from "react";
-import Image from "next/image";
-import Rents from "@/components/SupplierComp/Rents";
-import History from "@/components/SupplierComp/History";
-import { Bookmark } from "@/components/UserComp/Bookmark";
-import {
-  Button,
-  Typography,
-  Box,
-  ButtonGroup,
-  Grid,
-  Container,
-} from "@mui/material";
-
-const supplierIcon = require("../assets/images/SupplierProfile.png");
-
-const render = [
+import Rents from "@/components/UserComp/Rents";
+import History from "@/components/UserComp/History";
+import Bookmark from "@/components/UserComp/Bookmark";
+const COMPONENTS = [
   {
     title: "Rents",
-    text: "Rents хэсэг дарагдсан байна",
     component: <Rents />,
   },
   {
-    title: "History",
-    text: "R.History хэсэг дарагдсан байна",
+    title: "R.History",
     component: <History />,
   },
   {
     title: "Bookmark",
-    text: "Bookmark хэсэг дарагдсан байна",
     component: <Bookmark />,
   },
 ];
 
-const Supplier = () => {
-  const [selectedRender, setSelectedRender] = useState("");
+const User = () => {
+  const [selectedComponent, setSelectedComponent] = React.useState({
+    title: "",
+    component: "",
+  });
 
-  const handleClicked = (text) => {
-    setSelectedRender(text);
+  const handleClicked = (eko) => {
+    setSelectedComponent(eko);
   };
-
   return (
-    <Grid
-      container
-      sx={{
-        marginTop: { sm: "100px" },
-        flexGrow: 1,
-        paddingLeft: { md: "200px", sm: "0" },
-        paddingRight: { md: "400px", sm: "0" },
+    <div
+      style={{
+        background:
+          "linear-gradient(to right , #55A3DF,#4BA58C,#1FC4DC, #5ECDB1)",
       }}
+      className="container mx-auto "
     >
-      <Grid
-        item
-        className="profile-1"
-        md={6}
-        xs={12}
-        sx={{
-          paddingTop: { md: "100px", sm: "0" },
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-        }}
-      >
-        <Image src={supplierIcon} alt="SupplierProfile" width={130} />
-        <Typography sx={{ paddingTop: { xs: "20px" } }} variant="h4">
-          Name
-        </Typography>
-        <Typography sx={{ paddingTop: { xs: "20px" } }} variant="h6">
-          E-Mail
-        </Typography>
-        <Typography sx={{ paddingTop: { xs: "20px" } }} variant="h6">
-          Phone
-        </Typography>
-        <Typography sx={{ paddingTop: { xs: "20px" } }} variant="h6">
-          Location
-        </Typography>
-        <Box
-          sx={{
-            background:
-              "linear-gradient(to right , #55A3DF,#4BA58C,#1FC4DC, #5ECDB1)",
-            width: "200px",
-            height: "45px",
-            marginTop: "150px",
-            borderRadius: "5px",
-          }}
-        >
-          <Button
-            sx={{ width: "200px", height: "45px" }}
-            style={{ backgroundColor: "transparent" }}
-            variant="contained"
-          >
-            <Typography>Edit</Typography>
-          </Button>
-        </Box>
-      </Grid>
-      <Grid
-        item
-        className="profile-2"
-        md={6}
-        xs={12}
-        sx={{
-          marginTop: { xs: "50px", md: "0" },
-        }}
-      >
-        <ButtonGroup sx={{ display: "flex" }}>
-          {render.map((el, id) => (
-            <Button
-              key={id}
-              sx={{
-                color: "#06b6d4",
-                border: "solid #06b6d4 2px",
-                borderBottom: "none",
-                borderRadius: "10px",
-                outline: "none",
-                width: { md: "25%", xs: "100%" },
-                ":hover": {
-                  border: "solid #06b6d4 2px",
-                  borderBottom: "none",
-                },
-              }}
-              onClick={() => {
-                handleClicked(el);
-              }}
-            >
-              {el.title}
-            </Button>
-          ))}
-        </ButtonGroup>
-        <Box
-          sx={{
-            color: "#06b6d4",
-            paddingTop: "15px",
-            width: { md: "75%", xs: "100%" },
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            border: "solid #06b6d4",
-            borderRadius: "10px",
-            minHeight: { md: "700px", sm: "500px" },
-          }}
-        >
-          <Typography>{selectedRender.component}</Typography>
-        </Box>
-      </Grid>
-    </Grid>
+      <div className="grid md:grid-cols-3 p-12 gap-4">
+        <div className="bg-white md:col-span-1 rounded-xl h-96">
+          <div className="text-center pt-20">
+            <div className="flex justify-center ">
+              <img src="./images/user.png" width={100} />
+            </div>
+            <h1 className="font-semibold text-zinc-600 text-xl pt-5">
+              Myagmardorj Bilguunerkh
+            </h1>
+            <p className="font-light text-zinc-600 ">Ulaanbaatar, Mongolia</p>
+            <div className="p-5">
+              <button
+                style={{
+                  background:
+                    "linear-gradient(to right , #55A3DF,#4BA58C,#1FC4DC, #5ECDB1)",
+                }}
+                className="w-40 h-12 rounded-lg text-white font-semibold text-lg"
+              >
+                Follow
+              </button>
+            </div>
+          </div>
+        </div>
+        <div className="bg-white md:col-span-2 rounded-xl">
+          <div className="h-96 p-10 rounded-2xl">
+            <div className="flex justify-between p-4">
+              <h1 className="font-medium text-xl text-stone-900">Full Name</h1>
+              <p className="text-stone-500">Myagmardorj Bilguunerkh</p>
+            </div>
+            <div className="w-full h-0.5 bg-black my-2 scale-y-50 "></div>
+            <div className="flex justify-between p-4">
+              <h1 className="font-medium text-xl text-stone-900">Email</h1>
+              <p className="text-stone-500">bilguunerkh@gmail.com</p>
+            </div>
+            <div className="w-full h-0.5 bg-black my-2 scale-y-50 "></div>
+            <div className="flex justify-between p-4">
+              <h1 className="font-medium text-xl text-stone-900">
+                Phone Number
+              </h1>
+              <p className="text-stone-500">
+                <span>+976</span> 85151195
+              </p>
+            </div>
+            <div className="w-full h-0.5 bg-black my-2 scale-y-50 "></div>
+            <div className="flex justify-between p-4">
+              <h1 className="font-medium text-xl text-stone-900">Address</h1>
+              <p className="text-stone-500">Ulaanbaatar, Mongolia</p>
+            </div>
+          </div>
+        </div>
+
+        <div className="grid md:grid-cols-3 p-5 bg-white md:col-span-3 rounded-xl gap-4 h-96">
+          <div className="md:col-span-1">
+            <div className="grid md:grid-cols-2 gap-1 text-center">
+              {COMPONENTS.map((el, id) => (
+                <div
+                  key={id}
+                  onClick={() => {
+                    handleClicked(el);
+                  }}
+                >
+                  <h1 className="lg:font-bold text-stone-600 md:text-lg md:font-semibold border-2 border-black">
+                    {el.title}
+                  </h1>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="md:col-span-2">
+            <div className="border-2 border-black md:col-span-3 h-40 p-3">
+              <p>{selectedComponent.component}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 };
 
-export default Supplier;
+export default User;
