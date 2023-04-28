@@ -7,7 +7,7 @@ import FormHelperText from "@mui/material/FormHelperText";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 
-const add_card = () => {
+const Add_card = () => {
   return (
     <div className="container mx-auto p-12 bg-black">
       <div className="grid md:grid-cols-2 sm:space-y-4 md:space-y-0 gap-4">
@@ -64,4 +64,4 @@ const add_card = () => {
   );
 };
 
-export default add_card;
+export default Add_card;
