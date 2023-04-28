@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useState ,Component} from "react";
 import Rents from "@/components/UserComp/Rents";
 import History from "@/components/UserComp/History";
 import Bookmark from "@/components/UserComp/Bookmark";
+import { useRouter } from "next/router";
 const COMPONENTS = [
   {
     title: "Rents",
@@ -17,11 +18,25 @@ const COMPONENTS = [
   },
 ];
 
-const User = () => {
+interface IUser {
+  userName: { type: String, required: true },
+  userEmail: { type: String, required: true, unique: true },
+  userPassword: { type: String, required: true },
+  phoneNumber: { type: String, required: true },
+  profileImg: { type: String, default: "" },
+  address: { type: String },
+  cardNumber: { type: Number },
+  }
+  interface IUsers {
+    user: IUser[];
+  }
+
+const User = ({user}:IUsers) => {
   const [selectedComponent, setSelectedComponent] = React.useState({
     title: "",
     component: "",
   });
+  const router = useRouter();
 
   const handleClicked = (eko) => {
     setSelectedComponent(eko);
@@ -40,9 +55,11 @@ const User = () => {
             <div className="flex justify-center ">
               <img src="./images/user.png" width={100} />
             </div>
+              {user.map((user:IUser)=>(
             <h1 className="font-semibold text-zinc-600 text-xl pt-5">
-              Myagmardorj Bilguunerkh
             </h1>
+
+              ))}
             <p className="font-light text-zinc-600 ">Ulaanbaatar, Mongolia</p>
             <div className="p-5">
               <button
