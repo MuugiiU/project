@@ -10,6 +10,7 @@ import ProductRoutes from "./Routes/ProductRoutes";
 import OrderRoutes from "./Routes/OrderRoutes";
 import UserRoutes from "./Routes/userRoutes";
 import supplierRoutes from "./routes/supplierRoutes";
+import cartListRoutes from "./Routes/cartListRoutes";
 
 const app = express();
 
@@ -41,7 +42,6 @@ app.use("/categories", CategoryRoutes);
 app.use("/products", ProductRoutes);
 app.use("/orders", OrderRoutes);
 app.use("/users", UserRoutes);
-app.use("/suppliers", supplierRoutes);
 
 const MONGO_URI = process.env.MONGO || "";
 connectDB(MONGO_URI);
