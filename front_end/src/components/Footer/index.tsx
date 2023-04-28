@@ -33,10 +33,11 @@ export default function Footer() {
         background:
           "linear-gradient(to right, #55A3DF,#4BA58C,#1FC4DC, #5ECDB1)",
         paddingTop: "40px",
-        paddingBottom: "10px",
         marginTop: "40px",
-        position: "absolute",
         width: "100%",
+        height: { lg: "210px", sm: "350px", xs: "560px" },
+        display: "inline-block",
+        position: "sticky",
         bottom: "0",
       }}
     >
@@ -50,6 +51,7 @@ export default function Footer() {
         <Grid
           item
           lg={3}
+          sm={12}
           xs={12}
           sx={{
             textAlign: {
@@ -66,13 +68,22 @@ export default function Footer() {
             <Link href="#" sx={{ paddingLeft: { md: "20px" }, color: "white" }}>
               <Facebook />
             </Link>
-            <Link href="#" sx={{ paddingLeft: { md: "20px" }, color: "white" }}>
+            <Link
+              href="#"
+              sx={{ paddingLeft: { md: "20px", xs: "15px" }, color: "white" }}
+            >
               <Instagram />
             </Link>
-            <Link href="#" sx={{ paddingLeft: { md: "20px" }, color: "white" }}>
+            <Link
+              href="#"
+              sx={{ paddingLeft: { md: "20px", xs: "15px" }, color: "white" }}
+            >
               <YouTube />
             </Link>
-            <Link href="#" sx={{ paddingLeft: { md: "20px" }, color: "white" }}>
+            <Link
+              href="#"
+              sx={{ paddingLeft: { md: "20px", xs: "15px" }, color: "white" }}
+            >
               <Twitter />
             </Link>
           </Grid>
@@ -80,6 +91,7 @@ export default function Footer() {
         <Grid
           item
           lg={3}
+          sm={4}
           xs={12}
           sx={{
             display: "flex",
@@ -88,66 +100,52 @@ export default function Footer() {
             paddingTop: { xs: "40px", lg: "0px" },
           }}
         >
-          <Typography color="white" variant="h4">
+          <Typography color="white" variant="h5">
             Information
           </Typography>
           <Link href="#" sx={{ textDecoration: "none" }}>
-            <Typography color="white" variant="h6">
-              Terms & Conditions
-            </Typography>
+            <Typography color="white">Terms & Conditions</Typography>
           </Link>
           <Link href="#" sx={{ textDecoration: "none" }}>
-            <Typography color="white" variant="h6">
-              Help & Support
-            </Typography>
+            <Typography color="white">Help & Support</Typography>
           </Link>
           <Link href="#" sx={{ textDecoration: "none" }}>
-            <Typography color="white" variant="h6">
-              About
-            </Typography>
+            <Typography color="white">About</Typography>
           </Link>
         </Grid>
         <Grid
           item
           lg={3}
+          sm={4}
           xs={12}
           sx={{
             textAlign: { xs: "center", lg: "start" },
             paddingTop: { xs: "40px", lg: "0px" },
           }}
         >
-          <Typography color="white" variant="h4">
+          <Typography color="white" variant="h5">
             Contact Us
           </Typography>
-          <Typography color="white" variant="h6">
-            +976 90909090
-          </Typography>
-          <Typography color="white" variant="h6">
-            +976 80808080
-          </Typography>
+          <Typography color="white">+976 90909090</Typography>
+          <Typography color="white">+976 80808080</Typography>
         </Grid>
         <Grid
           lg={3}
+          sm={4}
           xs={12}
           sx={{
             textAlign: { xs: "center", lg: "start" },
             paddingTop: { xs: "40px", lg: "0px" },
           }}
         >
-          <Typography color="white" variant="h4">
+          <Typography color="white" variant="h5">
             Mail
           </Typography>
-          <Typography
-            color="white"
-            variant="h6"
-            sx={{ paddingTop: { md: "5px" } }}
-          >
-            e.rent@gmail.com
-          </Typography>
+          <Typography color="white">e.rent@gmail.com</Typography>
         </Grid>
       </Grid>
       <Grid xs={12} sx={{ textAlign: "center", paddingTop: "10px" }}>
-        <Typography color="white" variant="h6">
+        <Typography color="white" sx={{ fontSize: "20px" }}>
           2023
           <Copyright sx={{ height: "20px", marginBottom: "4px" }} /> erent.mn
         </Typography>
