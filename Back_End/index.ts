@@ -16,19 +16,11 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-app.post(
-  "/upload",
-  upload.single("image"),
-  async (req: Request, res: Response) => {
-    console.log("REQ:", req.file);
-    const result = await cloudinary.v2.uploader.upload(
-      req?.file?.path || "image"
-    );
-    res
-      .status(200)
-      .json({ message: "Амжилттай хадгаллаа.", imgUrl: result.secure_url });
-  }
-);
+app.post("/upload", upload.single("image"), async (req: Request, res: Response) => {
+  console.log("REQ:", req.file);
+  const result = await cloudinary.v2.uploader.upload(req?.file?.path || "image", { folder: "E.RENT" });
+  res.status(200).json({ message: "Амжилттай хадгаллаа.", imgUrl: result.secure_url });
+});
 
 app.get("/", (req: Request, res: Response) => {
   res.send("TEST-API");

@@ -12,15 +12,13 @@ interface Inav {
 }
 const catLink = [
   { cat: "Home", link: "/" },
-  { cat: "Гэрийн&Тавилга", link: "/ger" },
-  { cat: "Эрэгтэй", link: "/er" },
-  { cat: "Эмэгтэй", link: "/em" },
-  { cat: "Хүүхдийнх", link: "/huuhed" },
+  { cat: "Гэрийн Тавилга", link: "/ger" },
+  { cat: "Эрэгтэй&Эмэгтэй", link: "/er" },
+  { cat: "Хүүхэд", link: "/huuhed" },
   { cat: "Спорт", link: "/sport" },
   { cat: "Цахилгаан хэрэгсэл", link: "/tsahilgaan" },
-  { cat: "Технологи", link: "/technology" },
-  { cat: "Гоо сайхан", link: "/goo" },
-  { cat: "Үнэт эдлэл", link: "/unet" },
+  { cat: "Компьютер", link: "/technology" },
+  { cat: "Машин", link: "/car" },
   { cat: "Ном", link: "/nom" },
 ];
 const NabPages = () => {
@@ -44,25 +42,26 @@ const NabPages = () => {
     }
   };
   return (
-    <nav className=" w-full h-10 shadow-xl bg-white">
-      <div className="container mx-auto  items-center flex  h-full w-full px-4  2xl:px16 justify-around ">
-        <div>
+    <nav className="mx-auto h-20 shadow-xl w-screen pl-10">
+      <div className="container  items-center flex  h-full  text-xl:16px justify-between m-2 w-full">
+        <div className="items-center justify-center gap-2">
           {/* side bar-nii 3 zuraas */}
-          <button className="space-y-2" onClick={toggleMenu}>
+          <button className=" space-y-2" onClick={toggleMenu}>
             <div className="w-9 h-0.5 bg-[#55A3DF]" />
             <div className="w-9 h-0.5 bg-[#1FC4DC]" />
             <div className="w-9 h-0.5 bg-[#5ECDB1]" />
           </button>
           <span className="text-cyan-500 flex-row "> Ангилал</span>
         </div>
-        <div className="hidden sm:flex">
-          <ul className="hidden sm:flex">
-            <li className="flex gap-4">
+        <div className="flex sm:hidden md:flex min-md:text-sm/[12px] scrollbar-hide ">
+          <ul className="hidden sm:flex min-md:text-sm">
+            {/* <li className="flex gap-4 max-md:text-sm"> */}
+            <li className="flex gap-4 max-md:text-sm">
               {catLink.map(({ link, cat }) => (
                 <Link
                   key={cat}
                   href={link}
-                  className="ml=10  hover:bg-gray-50 hover:scale-110 text-cyan-500 "
+                  className=" hover:bg-gray-50 hover:scale-110 text-cyan-500 "
                 >
                   {cat}
                 </Link>
@@ -74,7 +73,7 @@ const NabPages = () => {
           onClick={() => {
             handleNav("noUrl");
           }}
-          className="md:hidden cursor-pointer pl-24 text-cyan-400 "
+          className="md:hidden sm:text-sm cursor-pointer text-cyan-400 "
         >
           {/* menu bar */}
           <svg
@@ -123,7 +122,7 @@ const NabPages = () => {
           </div>
         </div>
         {/* mobile responsive close bolgoh ued */}
-        <div className="flex-col py-4 md:hidden">
+        <div className="flex-col py-4 md:hidden sm:hidden">
           <ul>
             <li>
               {catLink.map(({ link, cat }) => (

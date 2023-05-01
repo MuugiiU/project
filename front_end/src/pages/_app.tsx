@@ -5,6 +5,7 @@ import Navbar from "@/components/Nav/Navbar";
 import Sidenav from "@/components/Nav/Sidenav";
 import Detail from "./Products/[id]";
 import Footer from "@/components/Footer";
+import Category from "@/components/Category";
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
@@ -13,6 +14,7 @@ export default function App({ Component, pageProps }: AppProps) {
       <Sidenav />
       <Component {...pageProps} />
       {/* <Footer /> */}
+      
     </NavContext>
   );
 }

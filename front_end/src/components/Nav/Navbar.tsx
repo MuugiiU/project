@@ -9,7 +9,7 @@ const imgPic01 = require("../../assets/images/notification-bell.png");
 const imgPic02 = require("../../assets/images/navbar_cart.png");
 const imgPic03 = require("../../assets/images/navbar_avatar.png");
 const imgPic04 = require("../../assets/images/navbar_bookmark.png");
-
+const imgPic05 = require("../../assets/images/e.rent.png")
 interface Inav {
   nav: Boolean;
   setNav: (nav: boolean) => void;
@@ -25,15 +25,11 @@ const Navbar = () => {
 
   return (
     <div className="pt-3">
-      <div className="bg-white h-20 shadow-md ">
-        <div className="container mx-auto  items-center gap-15 flex justify-between">
+      <div className="bg-white h-30 shadow-md ">
+        <div className="container mx-auto  items-center gap-15 flex justify-between ">
           <picture className="flex gap-10 items-center">
-            <img
-              src="./images/e.rent.png"
-              height={100}
-              width={100}
-              alt="imagew"
-            />
+            <Image src={imgPic05} alt="pic" height={100} width={100}/ >
+         
           </picture>
           {/* Search heseg ehlej bg ni  */}
 
@@ -78,17 +74,17 @@ const Navbar = () => {
           {/* responsive menu icon */}
           <FontAwesomeIcon
             icon={faSearch}
-            className="md:hidden inline-flex items-center p-2 text-2xl text-cyan-500 rounded-lg  hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-cyan-400 dark:hover:bg-cyan-700 dark:focus:ring-gray-600"
+            className="md:hidden inline-flex items-center p-2 text-xl md:text-sm text-cyan-500 rounded-lg  hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-cyan-400 dark:hover:bg-cyan-700 dark:focus:ring-gray-600"
           />
 
           <div id="md:hidden sm:hidden  navbar-search">
-            <div className="sm:hidden z-[-1] md:hidden  md:z-auto md:static  gap-10 w-3/12absolute lg:flex">
-              <picture className="flex gap-10">
+            <div className="max-sm:hidden z-[-1]  max-md:hidden  md:z-auto md:static  gap-5 w-3/12absolute lg:flex md:flex md:scale-90 lg:scale-100">
+              
                 <Image src={imgPic01} alt="pic" height={35} width={35} />
                 <Image src={imgPic04} alt="pic" height={35} width={35} />
                 <Image src={imgPic02} alt="pic" height={35} width={35} />
                 <Image src={imgPic03} alt="pic" height={35} width={35} />
-              </picture>
+              
             </div>
           </div>
         </div>
