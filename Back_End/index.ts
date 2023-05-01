@@ -8,6 +8,7 @@ import upload from "./middlewares/upload";
 import cloudinary from "./utils/cloudinary";
 import ProductRoutes from "./Routes/ProductRoutes";
 import OrderRoutes from "./Routes/OrderRoutes";
+import UserRoutes from "./Routes/userRoutes";
 import supplierRoutes from "./routes/supplierRoutes";
 import cartListRoutes from "./Routes/cartListRoutes";
 
@@ -32,6 +33,7 @@ app.use("/uploads", express.static("uploads"));
 app.use("/categories", CategoryRoutes);
 app.use("/products", ProductRoutes);
 app.use("/orders", OrderRoutes);
+app.use("/users", UserRoutes);
 
 const MONGO_URI = process.env.MONGO || "";
 connectDB(MONGO_URI);
