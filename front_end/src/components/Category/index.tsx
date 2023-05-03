@@ -8,7 +8,7 @@ const Category = ({ categories }: any) => {
       {/* tom dev 8-heseg huvaaj bg ni */}
       <div className="grid gap-x-2 gap-y-2 lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1 ">
         {/* neg div dotorh 4 jijig div */}
-        {categories?.length && categories.map((category: any) => <CategoryItem category={category} />)}
+        {categories?.length && categories.map((category: any, idx: number) => <CategoryItem category={category} key={idx} />)}
       </div>
     </div>
   );

@@ -1,6 +1,8 @@
 import Category from "@/components/Category";
 import React, { useEffect } from "react";
 import { useRouter } from "next/router";
+import CategoryList from "@/components/Categories";
+import CategoryItem from "@/components/CategoryItem";
 
 const category = ({ category }: any) => {
   const router = useRouter();
@@ -11,7 +13,11 @@ const category = ({ category }: any) => {
 };
 
 const SubCategoryList = ({ categories }: any) => {
-  return <div>SubCategoryList</div>;
+  return (
+    <div>
+      <CategoryItem />
+    </div>
+  );
 };
 
 export async function getServerSideProps({ query }: any) {

@@ -7,17 +7,17 @@ const productSchema = new Schema(
       ref: "Category",
       required: true,
     },
-    product_title: { type: String, required: true },
-    product_price: { type: Number },
-    product_img: [String],
-    product_location: {
+    title: { type: String, required: true },
+    price: { type: Number },
+    img: [String],
+    location: {
       type: {
         type: String,
         default: "Point",
       },
       coordinates: [Number],
     },
-    product_rating: {
+    rating: {
       type: Number,
       min: 1,
       max: 5,
@@ -32,7 +32,6 @@ const productSchema = new Schema(
     supplier: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "Supplier",
-      required: true,
     },
   },
   { timestamps: true }

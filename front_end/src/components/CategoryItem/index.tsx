@@ -4,7 +4,7 @@ import Image from "next/image";
 
 const CategoryItem = ({ category }: any) => {
   return (
-    <div className="rounded-lg border-2 border-cyan-400 flex flex-col p-4">
+    <div className="rounded-lg border-2 border-gray-200 shadow-lg flex flex-col p-4">
       <h2 className=" text-md bg-gradient-to-r from-blue-300 from-10% via-sky-500 via-30% to-emerald-300 to-90% top-0 left-0 bg-clip-text text-transparent rounded-xl transition-all duration-500 font-bold ">
         {/* Гэрийн Тавилга */}
         {category.category_title}
