@@ -13,6 +13,7 @@ import BackToTopButton from "@/components/BackButton/BackToTopButton";
 import LoginModal from "@/components/Auth/Login";
 import Hover from "@/components/Hover/hover";
 import ProductSwiper from "@/components/Product/ProductCard/ProductSwiper";
+import Navbar from "@/components/Nav/Navbar";
 
 const Index = () => {
   return (
