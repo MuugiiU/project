@@ -1,13 +1,13 @@
 import React from "react";
-import Navbar from "@/components/Nav/Navbar";
+import Tnavbar from "@/components/Tnavbar/tnavbar";
+import Dele from "@/components/Tnavbar/dele";
 
 const NavLayout = ({ children }: any) => {
   return (
-    <div>
-      {/* <Navbar /> */}
-
+    <div className="">
+      {/* <Tnavbar /> */}
+      <Dele />
       {children}
-      {/* <Footer /> */}
     </div>
   );
 };

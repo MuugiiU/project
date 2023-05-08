@@ -17,15 +17,30 @@ export const getAllProducts = async (req: Request, res: Response) => {
   }
 };
 
-export const getProduct = async (req: Request, res: Response) => {
-  try {
-    const { id } = req.params;
-    console.log(req.params);
-    const product = await Product.findById({ id }).populate("category");
-    res.status(200).json({ success: true, product });
-  } catch (error: any) {
-    console.log("Алдааны мэдээлэл", error.message);
-  }
+// export const getProduct = async (req: Request, res: Response) => {
+//   try {
+//     const { id } = req.params;
+//     console.log(req.params);
+//     const product = await Product.findById({ id }).populate("category");
+//     res.status(200).json({ success: true, product });
+//   } catch (error: any) {
+//     console.log("Алдааны мэдээлэл", error.message);
+//   }
+// };
+
+
+const getBaraa = async (req: Request, res: Response) => {
+  const { id } = req.params;
+if (!id) {
+res.status(400).json({ message: `${id} - тай бараа олдсонгүй.` });
+}
+try {
+
+const product = await Product.findById(id);
+res.status(200).json({message: `${id} - тай бараа олдлоо.`, product});
+} catch (error: any) {
+  res.status(400).json({ message: "Алдааны мэдээлэл", error: error.message });
+}
 };
 
 export const createProduct = async (req: Request, res: Response) => {
@@ -74,3 +89,4 @@ export const deleteProduct = async (req: Request, res: Response) => {
     console.log("Алдааны мэдээлэл", error);
   }
 };
+export { getBaraa };

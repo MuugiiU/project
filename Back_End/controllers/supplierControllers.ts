@@ -1,5 +1,7 @@
 import Supplier from "../models/Supplier";
 import { NextFunction, Request, Response } from "express";
+const bcrypt = require("bcrypt");
+
 
 const getSuppliers = async (
   req: Request,
@@ -38,7 +40,7 @@ const createSupplier = async (
   res: Response,
   next: NextFunction
 ) => {
-  const { supplier_name, supplier_address, supplier_phone, supplier_email } =
+  const { supplier_name, supplier_address, supplier_phone, supplier_email , supplier_password} =
     req.body;
 
   if (
@@ -59,6 +61,7 @@ const createSupplier = async (
       supplier_address: req.body.supplier_address,
       supplier_phone: req.body.supplier_phone,
       supplier_email: req.body.supplier_email,
+      supplier_password: req.body.supplier_password
     });
     res
       .status(201)
@@ -66,8 +69,62 @@ const createSupplier = async (
   } catch (err) {
     res
       .status(400)
-      .json({ message: `Шинэ түрээслүүлэгч бүртгэх гэтэл алдаа.` });
+      .json({ err, message: `Шинэ түрээслүүлэгч бүртгэх гэтэл алдаа.` });
   }
 };
 
-export { getSuppliers, getSupplier, createSupplier };
+
+const updtadeSupplier = async (req: Request, res: Response) => {
+  const { id } = req.params;
+  if (!id) {
+    res.status(400).json({ message: `${id} -тай түрээслүүлэгч олдсонгүй ` });
+  }
+  try {
+    const supplier = await Supplier.findByIdAndUpdate(id, req.body);
+    res.status(200).json({
+      message: `${id} -тай түрээслүүлэгч өөрчлөгдлөө`,
+      supplier,
+    });
+
+    
+  } catch (err) {
+    console.log("алдаа", err);
+    
+  }
+};
+
+const SupplierRegister = async (req: Request, res: Response) => {
+  const { supplier_name, supplier_phone, supplier_email, supplier_password } = req.body;
+  try {
+    const hashedPassword = bcrypt.hashSync(supplier_password, 10);
+    const supplier = await Supplier.create({
+      supplier_name,
+      supplier_phone,
+      supplier_email,
+      supplier_password: hashedPassword,
+    });
+    res.status(200).json({ message: `Түрээслүүлэгч амжилттай бүртгэгдлээ`, supplier });
+  } catch (err) {
+    console.log("алдаа", err);
+  }
+};
+
+const SupplierLogin = async (req: Request, res: Response) => {
+  const { supplier_email, supplier_password } = req.body;
+
+  console
+  const supplierIf = await Supplier.findOne({ supplier_email });
+  if (supplierIf) {
+    const passOkey = bcrypt.compareSync(supplier_password, supplierIf.supplier_password);
+    if (passOkey) {
+      res.status(200).json({ message: `pass okey`, supplier: supplierIf });
+    } else {
+      res.status(400).json({ message: `pass not okey`, supplier:supplierIf });
+    }
+  } else {
+    res.status(400).json({ message: `Supplier oldsongui!!` });
+  }
+}
+
+
+export { getSuppliers, getSupplier, createSupplier, updtadeSupplier,SupplierRegister,SupplierLogin };
