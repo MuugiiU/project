@@ -1,11 +1,14 @@
 import CartSection from "@/components/Cart/cartSection";
+import NavLayout from "@/Layout/NavLayout";
 import React from "react";
 
 const Cart = () => {
   return (
-    <div className="container mx-auto">
-      <CartSection />
-    </div>
+    <NavLayout>
+      <div className="container mx-auto pt-5">
+        <CartSection />
+      </div>
+    </NavLayout>
   );
 };
 

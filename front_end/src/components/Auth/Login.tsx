@@ -10,6 +10,9 @@ import Link from "@mui/material/Link";
 import Checkbox from "@mui/material/Checkbox";
 import { Person, Business } from "@mui/icons-material";
 import RegisterChooseModal from "./RegisterChoose";
+import { useState, useContext } from "react";
+import axios from "axios";
+import { AuthContext } from "@/context/AuthContext";
 
 const loginstyle = {
   position: "absolute" as "absolute",
@@ -37,14 +40,48 @@ const CyanInput = styled(TextField)({
 });
 
 export default function LoginModal() {
+  const [supplier_email, setSupplierEmail] = useState("");
+  const [supplier_password, setSupplierPassword] = useState("");
+  const [role, setRole] = useState("");
+  const { supplier, setSupplier } = useContext(AuthContext);
+
+  const changeEmail = (e) => {
+    console.log("Supplier_Email: ", e.target.value);
+    setSupplierEmail(e.target.value);
+  };
+  const changePass = (e) => {
+    console.log("Supplier_Password: ", e.target.value);
+    setSupplierPassword(e.target.value);
+  };
+
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
+  const handleLoginSubmit = async () => {
+    try {
+      const res = (await axios.post(`http://localhost:9000/supplier/login`, {
+        supplier_email,
+        supplier_password,
+      })) as any;
+
+      console.log(res);
+      setSupplier(res.data.supplier);
+      // alert("Login Successful");
+    } catch {
+      alert("Login Failed!!");
+    }
+  };
+
   return (
     <>
       <Button onClick={handleOpen}>
-        <Typography sx={{ color: "#06b6d4" }} textTransform="capitalize">
+        <Typography
+          sx={{
+            color: "black",
+          }}
+          textTransform="capitalize"
+        >
           Нэвтрэх
         </Typography>
       </Button>
@@ -95,9 +132,10 @@ export default function LoginModal() {
           >
             <Box sx={{ marginTop: "25px" }}>
               <CyanInput
-                id="outlined-basic"
-                label="E-Mail"
+                id="supplier_email"
+                label="example@gmail.com"
                 variant="outlined"
+                onChange={changeEmail}
                 InputLabelProps={{ style: { color: "#06b6d4" } }}
                 sx={{
                   width: 414,
@@ -107,9 +145,10 @@ export default function LoginModal() {
                 }}
               />
               <CyanInput
-                id="outlined-basic"
-                label="Password"
+                id="supplier_password"
+                label="**********"
                 variant="outlined"
+                onChange={changePass}
                 InputLabelProps={{ style: { color: "#06b6d4" } }}
                 sx={{
                   width: 414,
@@ -163,10 +202,12 @@ export default function LoginModal() {
                   height: "40px",
                   color: "#06b6d4",
                 }}
+                onClick={() => setRole("User")}
               >
                 <Person />
               </Button>
               <Button
+                onClick={() => setRole("Supplier")}
                 sx={{
                   border: 1,
                   height: "44px",
@@ -192,6 +233,7 @@ export default function LoginModal() {
                 sx={{ width: "200px", height: "45px" }}
                 style={{ backgroundColor: "transparent" }}
                 variant="contained"
+                onClick={handleLoginSubmit}
               >
                 <Typography>Нэвтрэх</Typography>
               </Button>

@@ -1,10 +1,18 @@
 import React from "react";
 import Image from "next/image";
+import { useRouter } from "next/router";
 import box from "../../../public/images/box.png";
 import bosch from "../../../public/images/BOSCH.jpeg";
 import Link from "next/link";
 
-const ProductDetial = () => {
+const ProductDetial = ({ product }: any) => {
+  const router = useRouter();
+  console.log("mm===>", product);
+
+  if (router.isFallback) {
+    return <div>Уншиж байна ...</div>;
+  }
+
   return (
     <div
       style={{
@@ -27,17 +35,13 @@ const ProductDetial = () => {
           (0 үнэлгээтэй)
         </p>
         <div className="w-full h-0.5 bg-white my-2 scale-y-50"></div>
-        <p className="font-medium text-sm sm:hidden md:block ">
+        <p className="font-medium text-sm sm:hidden md:block">
           Онлайн авах үнэ
         </p>
-        <h1 className="font-extrabold text-2xl">329,900 ₮</h1>
+        {/* <h1 className="font-extrabold text-2xl">{product.product_title}₮</h1> */}
         <div className="w-full h-0.5 bg-white my-2 scale-y-50 "></div>
 
         <div className="bg-white text-black h-20 rounded-lg flex gap-4 items-center px-5">
-          {/* <img
-              style={{ width: "52px", height: "50px" }}
-              src="./images/box.png"
-            /> */}
           <Image
             style={{ width: "52px", height: "50px" }}
             src={box}
@@ -65,5 +69,15 @@ const ProductDetial = () => {
     </div>
   );
 };
+
+export async function getServerSideProps({ query }: any) {
+  const result = await fetch(
+    `http://localhost:9000/products/${query.productId}`
+  );
+  const data = await result.json();
+  return {
+    props: { product: data.product },
+  };
+}
 
 export default ProductDetial;
