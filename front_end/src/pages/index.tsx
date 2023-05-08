@@ -9,12 +9,18 @@ import Medee from "@/components/Medee/medee";
 import BackToTopButton from "@/components/BackButton/BackToTopButton";
 import LoginModal from "@/components/Auth/Login";
 import Hover from "@/components/Hover/hover";
+import CategoryList from "@/components/Categories";
+import ProductHeader from "@/components/ProductHeader";
+import ProductSwiper from "@/components/ProductSwiper";
 
 const Index = () => {
   return (
     <NavLayout>
       <SwiperSection />
+      <CategoryList />
       <Product />
+      <ProductHeader />
+      <ProductSwiper />
       <Hover />
       <Apart />
       <Medee />
@@ -23,5 +29,4 @@ const Index = () => {
     </NavLayout>
   );
 };
-
 export default Index;

@@ -1,5 +1,6 @@
 import { Request, Response } from "express";
 import Category from "../models/Category";
+import slugify from "slugify";
 // get all Categories
 export const getAllCategories = async (req: Request, res: Response) => {
   try {
@@ -37,6 +38,7 @@ export const createCategory = async (req: Request, res: Response) => {
     discription,
     category_img,
     category_type,
+    category_slug: slugify(category_type), //geriin tavilga => geriin-tavilga
   };
   try {
     const category = await Category.create(newCategory);
@@ -76,9 +78,7 @@ export const deleteCategory = async (req: Request, res: Response) => {
   }
   try {
     const category = await Category.findByIdAndDelete(id);
-    res
-      .status(201)
-      .json({ message: `${id}-тэй категори устгагдлаа`, category });
+    res.status(201).json({ message: `${id}-тэй категори устгагдлаа`, category });
   } catch (error) {
     console.log("Алдааны мэдээлэл", error);
   }
@@ -89,17 +89,11 @@ export const getSubCategory = async (req: Request, res: Response) => {
   try {
     const category = await Category.findById(categoryId);
     if (!category) {
-      return res
-        .status(404)
-        .json({ message: `${subCategoryId}-Дэд категори олдсонгүй` });
+      return res.status(404).json({ message: `${subCategoryId}-Дэд категори олдсонгүй` });
     }
-    const subCategory = category.subCategories.find(
-      (el) => el._id?.toString() === subCategoryId
-    );
+    const subCategory = category.subCategories.find((el) => el._id?.toString() === subCategoryId);
     if (!subCategory) {
-      return res
-        .status(404)
-        .json({ message: `${subCategoryId}-Дэд категори олдсонгүй` });
+      return res.status(404).json({ message: `${subCategoryId}-Дэд категори олдсонгүй` });
     }
     res.status(200).json(subCategory);
   } catch (error) {
@@ -134,21 +128,15 @@ export const updateSubCategory = async (req: Request, res: Response) => {
   try {
     const category = await Category.findById(categoryId);
     if (!category) {
-      return res
-        .status(404)
-        .json({ message: `${subCategoryId}-Дэд категори олдсонгүй` });
+      return res.status(404).json({ message: `${subCategoryId}-Дэд категори олдсонгүй` });
     }
 
     console.log("CC", category.subCategories);
-    const findIdx = category.subCategories.findIndex(
-      (el) => el._id?.toString() === subCategoryId
-    );
+    const findIdx = category.subCategories.findIndex((el) => el._id?.toString() === subCategoryId);
     console.log("FI", findIdx);
     category.subCategories.set(findIdx, { ...req.body });
     await category.save();
-    res
-      .status(200)
-      .json({ message: " Дэд категори амжилттай шинэчлэгдлээ", category });
+    res.status(200).json({ message: " Дэд категори амжилттай шинэчлэгдлээ", category });
   } catch (error) {
     console.log("Алдааны мэдээлэл", error);
   }
@@ -163,9 +151,7 @@ export const deleteSubCategory = async (req: Request, res: Response) => {
     const category = await Category.findById(categoryId);
 
     if (!category) {
-      return res
-        .status(404)
-        .json({ message: `${subCategoryId}--Дэд категори олдсонгүй` });
+      return res.status(404).json({ message: `${subCategoryId}--Дэд категори олдсонгүй` });
     }
 
     category.subCategories.pull({ _id: subCategoryId });
