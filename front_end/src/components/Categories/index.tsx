@@ -3,13 +3,15 @@ import React, { useState, useEffect } from "react";
 
 const CategoryList = () => {
   const [categories, setCategories] = useState([]);
+
+  const fetchData = async () => {
+    const res = await fetch(`http://localhost:9000/categories`);
+    const data = await res.json();
+    console.log(data);
+    setCategories(data?.categories);
+  };
+
   useEffect(() => {
-    const fetchData = async () => {
-      const res = await fetch(`http://localhost:9000/categories`);
-      const data = await res.json();
-      console.log(data);
-      setCategories(data?.categories);
-    };
     fetchData();
   }, []);
   console.log("CL", categories);

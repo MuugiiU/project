@@ -21,22 +21,10 @@ const SupplierSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    createAtSupplier: {
-        type: Date,
-        required: true
-    },
-    updateAtSupplier: {
-        type: Date,
-        required: true
-    },
-    deleteAtSupplier: {
-        type: Date,
-        required: true
-    },
     payment_methods: {type: Types.ObjectId, ref: "payment_status" },
-    current_order: {type: Types.ObjectId, ref: "order", required: true },
-    user_id: {type: Types.ObjectId, ref: "user", required: true }
-});
+    current_order: {type: Types.ObjectId, ref: "order"},
+    user_id: { type: Types.ObjectId, ref: "user" },
+},  { timestamps: true });
 
 const Supplier = mongoose.model("Supplier", SupplierSchema);
 export default Supplier;

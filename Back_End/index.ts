@@ -6,10 +6,11 @@ import CategoryRoutes from "./Routes/CategoryRoutes";
 import { connectDB } from "./config/mongoDB";
 import upload from "./middlewares/upload";
 import cloudinary from "./utils/cloudinary";
-import ProductRoutes from "./Routes/ProductRoutes";
-import OrderRoutes from "./Routes/OrderRoutes";
-import UserRoutes from "./Routes/userRoutes";
-import supplierRoutes from "./routes/supplierRoutes";
+import ProductRoutes from "./routes/ProductRoutes";
+import OrderRoutes from "./routes/OrderRoutes";
+import UserRoutes from "./routes/userRoutes";
+import SupplierRoutes from "./routes/SupplierRoutes"
+
 import cartListRoutes from "./Routes/cartListRoutes";
 
 const app = express();
@@ -34,6 +35,7 @@ app.use("/categories", CategoryRoutes);
 app.use("/products", ProductRoutes);
 app.use("/orders", OrderRoutes);
 app.use("/users", UserRoutes);
+app.use("/supplier", SupplierRoutes)
 
 const MONGO_URI = process.env.MONGO || "";
 connectDB(MONGO_URI);
