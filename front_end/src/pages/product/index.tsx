@@ -1,6 +1,7 @@
-import ProductCard from "@/components/ProductCard";
-import ProductHeader from "@/components/ProductHeader";
-import ProductSwiper from "@/components/ProductSwiper";
+import ProductCard from "@/components/Product/ProductCard";
+import ProductHeader from "@/components/Product/ProductCard/ProductHeader";
+import ProductSwiper from "@/components/Product/ProductCard/ProductSwiper";
+import ProductSideBar from "@/components/Product/Productsidebar";
 // const product = ({ product }: any) => {
 //   const router = useRouter();
 //   console.log("product", product);
@@ -14,6 +15,7 @@ const ProductList = ({ products }: any) => {
   return (
     <>
       <ProductHeader>
+        <ProductSideBar />
         {products?.map((product: any, idx: number) => (
           <ProductCard product={product} />
         ))}

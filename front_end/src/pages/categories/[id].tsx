@@ -1,29 +1,26 @@
-import Category from "@/components/Category";
-import React, { useEffect } from "react";
-import { useRouter } from "next/router";
-import CategoryList from "@/components/Categories";
-import CategoryItem from "@/components/CategoryItem";
+import ProductCard from "@/components/Product/ProductCard";
+import ProductSideBar from "@/components/Product/Productsidebar";
+import React from "react";
 
-const category = ({ category }: any) => {
-  const router = useRouter();
-  console.log("category", category);
-  if (router.isFallback) {
-    return <div>Уншиж байна...</div>;
-  }
-};
-
-const SubCategoryList = ({ categories }: any) => {
+const Category = ({ products }: any) => {
   return (
     <div>
-      <CategoryItem />
+      <ProductSideBar />
+      {/* <ProductCard products={products} /> */}
+      {products.map((p: any) => (
+        <p>{p.title}</p>
+      ))}
     </div>
   );
 };
 
-export async function getServerSideProps({ query }: any) {
-  const res = await fetch(`http://localhost:9000/categories/${query.id}`);
-  const data = await res.json();
+export default Category;
 
-  return { props: { categories: data.category } };
+export async function getServerSideProps(context: any) {
+  console.log("IIDD", context.query);
+  const { id } = context.query;
+  const data: any = await fetch("http://localhost:9000/subcategories/" + id + "/products").then((res) => res.json());
+  console.log("DD", data);
+
+  return { props: { products: data.products } };
 }
-export default SubCategoryList;
