@@ -52,14 +52,8 @@ export const createCartList = async (req: Request, res: Response) => {
     } else {
       console.log("RENEW", p);
       cartList.productList.push(p);
-      const newPrice = cartList.productList.reduce(
-        (sum, el: any) => el.price + sum,
-        0
-      );
-      const newQuantity = cartList.productList.reduce(
-        (sum, el: any) => el.quantity + sum,
-        0
-      );
+      const newPrice = cartList.productList.reduce((sum, el: any) => el.price + sum, 0);
+      const newQuantity = cartList.productList.reduce((sum, el: any) => el.quantity + sum, 0);
       cartList.totalPrice = newPrice;
       cartList.totalQuantity = newQuantity;
       const newCartList = await cartList.save();
@@ -81,14 +75,10 @@ export const updateCartList = async (req: Request, res: Response) => {
     const cartList = await CartModel.findOne({ user: userId });
 
     if (!cartList) {
-      return res
-        .status(404)
-        .json({ message: "Хэрэглэгчийн карт олдохгүй байна." });
+      return res.status(404).json({ message: "Хэрэглэгчийн карт олдохгүй байна." });
     }
     // console.log(cartList.productList);
-    const index = cartList.productList.findIndex(
-      (product: any) => product._id.toString() === id
-    );
+    const index = cartList.productList.findIndex((product: any) => product._id.toString() === id);
     console.log(index);
 
     if (index < 0) {
@@ -97,20 +87,12 @@ export const updateCartList = async (req: Request, res: Response) => {
     }
 
     cartList.productList[index].quantity = Number(quantity);
-    cartList.productList[index].price =
-      cartList.productList[index].quantity! *
-      cartList.productList[index].product.product_price;
+    cartList.productList[index].price = cartList.productList[index].quantity! * cartList.productList[index].product.product_price;
     cartList.productList.set(index, cartList.productList[index]);
     console.log("CP", cartList);
 
-    const newPrice = cartList.productList.reduce(
-      (updateP, el: any) => el.price + updateP,
-      0
-    );
-    const newQuantity = cartList.productList.reduce(
-      (updateP, el: any) => el.quantity + updateP,
-      0
-    );
+    const newPrice = cartList.productList.reduce((updateP, el: any) => el.price + updateP, 0);
+    const newQuantity = cartList.productList.reduce((updateP, el: any) => el.quantity + updateP, 0);
 
     console.log("NP", newPrice);
     console.log("NQ", newQuantity);
@@ -132,14 +114,10 @@ export const deleteCartItem = async (req: Request, res: Response) => {
   try {
     const cartList = await CartModel.findOne({ user: userId });
     if (!cartList) {
-      return res
-        .status(404)
-        .json({ message: "Хэрэглэгчийн карт олдохгүй байна." });
+      return res.status(404).json({ message: "Хэрэглэгчийн карт олдохгүй байна." });
     }
 
-    const index = cartList.productList.findIndex(
-      (product) => product.product._id == id
-    );
+    const index = cartList.productList.findIndex((product) => product.product._id == id);
 
     if (!index) {
       return res.status(404).json({ message: "Карт байхгүй байна." });
@@ -152,14 +130,8 @@ export const deleteCartItem = async (req: Request, res: Response) => {
       _id: id,
     });
     console.log("CC", cartList);
-    const newPrice = cartList.productList.reduce(
-      (sum, el: any) => el.price + sum,
-      0
-    );
-    const newQuantity = cartList.productList.reduce(
-      (sum, el: any) => el.quantity + sum,
-      0
-    );
+    const newPrice = cartList.productList.reduce((sum, el: any) => el.price + sum, 0);
+    const newQuantity = cartList.productList.reduce((sum, el: any) => el.quantity + sum, 0);
 
     cartList.totalPrice = newPrice;
     cartList.totalQuantity = newQuantity;

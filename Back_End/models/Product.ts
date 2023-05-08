@@ -2,14 +2,9 @@ import mongoose, { Schema, model } from "mongoose";
 
 const productSchema = new Schema(
   {
-    category: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "Category",
-      required: true,
-    },
     title: { type: String, required: true },
     price: { type: Number },
-    img: [String],
+    imgUrl: [String],
     location: {
       type: {
         type: String,
@@ -29,6 +24,11 @@ const productSchema = new Schema(
     createadAtDate: { type: Date },
     updatedAtDate: { type: Date },
     deletedAtDate: { type: Date },
+    subcategory: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "SubCategory",
+      required: true,
+    },
     supplier: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "Supplier",

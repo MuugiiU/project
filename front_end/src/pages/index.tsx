@@ -1,5 +1,8 @@
 import NavLayout from "@/Layout/NavLayout";
 import React from "react";
+import ProductHeader from "@/components/Product/ProductCard/ProductHeader";
+import CategoryList from "../components/categories";
+import AddProduct from "@/components/AddProduct";
 import SwiperSection from "@/components/Swiper/swiper";
 import Product from "@/components/Product/product";
 // import LoginModal from "@/components/Auth/Login";
@@ -9,16 +12,15 @@ import Medee from "@/components/Medee/medee";
 import BackToTopButton from "@/components/BackButton/BackToTopButton";
 import LoginModal from "@/components/Auth/Login";
 import Hover from "@/components/Hover/hover";
-import CategoryList from "@/components/Categories";
-import ProductHeader from "@/components/ProductHeader";
-import ProductSwiper from "@/components/ProductSwiper";
+import ProductSwiper from "@/components/Product/ProductCard/ProductSwiper";
+import Navbar from "@/components/Nav/Navbar";
 
 const Index = () => {
   return (
     <NavLayout>
       <SwiperSection />
       <CategoryList />
-      <Product />
+      {/* <Product /> */}
       <ProductHeader />
       <ProductSwiper />
       <Hover />

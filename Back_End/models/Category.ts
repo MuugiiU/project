@@ -1,41 +1,26 @@
 import { Schema, model } from "mongoose";
 
-const subCategorySchema = new Schema({
-  sub_cat_title: {
-    type: String,
-    required: true,
-  },
-
-  sub_cat_desc: {
-    type: String,
-    required: true,
-  },
-  sub_cat_img: {
-    type: String,
-    required: true,
-  },
-});
 const categorySchema = new Schema({
-  category_title: {
-    type: String,
-    unique: true,
-    required: true,
-  },
-  category_img: {
+  title: {
     type: String,
     required: true,
   },
-  discription: {
+  imgUrl: {
     type: String,
     required: true,
   },
-  category_type: {
+  description: {
     type: String,
-    unique: true,
     required: true,
   },
-  category_slug: String,
-  subCategories: [subCategorySchema],
+  type: {
+    type: String,
+    required: true,
+  },
+  slug: String,
+
+ 
+
 });
 
 const Category = model("Category", categorySchema);
