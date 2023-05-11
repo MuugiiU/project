@@ -1,11 +1,13 @@
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 const ProductCard = ({ product }: any) => {
   return (
     <div className="rounded-xl w-full h-96 bg-white shadow-lg hover:shadow-xl hover:transform hover:scale-105 duration-300 ">
       <div className=" relative flex w-full gap-30 justify-between item-center rounded-xl">
         <img src={product.imgUrl} alt="photo" className="w-full h-64 object-cover" />
+        <Link href="/products/[id]" as={`products/${product}/?`}></Link>
       </div>
 
       <div className="mt-1 p-2">

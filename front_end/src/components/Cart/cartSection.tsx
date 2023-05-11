@@ -14,6 +14,8 @@ const CartSection = () => {
         <div className="bg-white p-5 flex gap-2 md:col-span-2 md:items-center">
           <Image
             src={mackbook}
+            height={50}
+            width={50}
             className=" sm:w-40 max-sm:w-40 md:w-60 md:h-40"
           />
           <div className="block">
