@@ -8,8 +8,8 @@ import { useState, useEffect } from "react";
 import ProductCard from "..";
 
 const ProductSwiper = () => {
-  const [products, setProducts] = useState([]);
-  console.log(products.length);
+  const [products, setProducts] = useState([""]);
+  // console.log(products.length);
   useEffect(() => {
     const fetchData = async () => {
       const res = await fetch(`http://localhost:9000/products`);
