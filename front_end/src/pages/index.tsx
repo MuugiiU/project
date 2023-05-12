@@ -26,6 +26,7 @@ const Index = () => {
       <Hover />
       <Apart />
       <Medee />
+
       <Footer />
       <BackToTopButton />
     </NavLayout>

@@ -38,6 +38,10 @@ export const register = async (req: Request, res: Response, next: NextFunction) 
   try {
     const hashedPassword = bcrypt.hashSync(password, 10);
     const user = await User.create({ name, email, phoneNumber, cardNumber, address, profileImg, password: hashedPassword });
+    const ss = process.env.JWT_SECRET_KEY || "";
+    jwt.sign({userId:user._id,name},ss,{},)
+    
+    
     res.status(200).json({ message: `Амжилттай бүртгэгдлэлээ`, user });
   } catch (error) {
     next(error);

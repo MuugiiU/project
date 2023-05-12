@@ -89,7 +89,7 @@ export const deleteUser = async (req: Request, res: Response) => {
     res.status(400).json({ message: `${id} түрээслэгч олдсонгүй` });
   }
   try {
-    const user = await User.findByIdAndDelete({ id });
+    const user = await User.findByIdAndDelete({ _id:id });
     res.status(201).json({ message: `${id} түрээслэгч устлаа`, user });
   } catch (error) {
     console.log("алдаа", error);
